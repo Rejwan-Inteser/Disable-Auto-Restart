@@ -11,8 +11,11 @@ if %errorLevel% neq 0 (
 REM Continue with the script after acquiring administrative privileges
 echo Administrative privileges acquired.
 
-REM Disable Windows Update service
-sc config wuauserv start= disabled
+REM Disable Automatic Updates in Registry
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
+
+REM Set AUOptions to 1 (disable Automatic Updates)
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v AUOptions /t REG_DWORD /d 1 /f
 
 REM Disable automatic restart on system failure
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v AutoReboot /t REG_DWORD /d 0 /f
@@ -29,10 +32,14 @@ for /l %%i in (10,-1,1) do (
     timeout /nobreak /t 1 >nul
 )
 
-REM Run gpupdate /force
+REM Update Group Policy
 echo Updating Group Policy...
 gpupdate /force
-
 echo Group Policy update completed.
-echo Configuration completed. AutoRestart of your computer should be disabled succesfully.
+
+REM Restart Windows Update Service
+net stop wuauserv
+net start wuauserv
+
+echo Configuration completed. AutoRestart of your computer should be disabled successfully.
 pause
