@@ -1,34 +1,39 @@
-# Disable Auto Restart for Windows
+# Disable AutoRestart Script
 
-## Overview
-
-This repository contains a CMD script that disables automatic restarts on Windows. The script requests administrative privileges, modifies system settings, adds registry entries, and updates group policies to ensure that Windows does not automatically restart after system failure or Windows updates.
+This script automates the process of disabling automatic restarts on your Windows system, particularly during system failures and Windows Updates. It requests administrative privileges, modifies registry settings related to Windows Update and automatic restarts, updates Group Policy, and restarts the Windows Update service.
 
 ## Usage
 
-1. Download the CMD file: [DisableAutoRestart.cmd](DisableAutoRestart.cmd).
-2. Click on the downloaded file and run it.
-3. Follow the prompts to grant administrative privileges or in case of error right-click on the downloaded file and choose "Run as administrator".
+1. **Download Script:**
+   - Download the script: [DisableAutoRestart.cmd](DisableAutoRestart.cmd).
 
-## What It Does
+2. **Run as Administrator:**
+   - Click on the downloaded script (`DisableAutoRestart.cmd`) and run it.
+   - When prompted, grant administrative privileges.
 
-- **Disables Windows Update service:**
-  The script configures the Windows Update service to start as "disabled." By doing so, the Windows Update service won't start automatically when the system boots up. This action prevents the system from automatically downloading and installing updates. Please note that disabling the Windows Update service can impact the security and performance of your system, as it prevents timely installation of critical updates.
+3. **Follow Instructions:**
+   - The script will display instructions and a countdown.
+   - After the countdown, it will update Group Policy, disable automatic updates, and restart the Windows Update service.
 
-- **Disables automatic restart on system failure:**
-  The script adds a registry entry to disable automatic system restarts on system failure. This modification prevents the system from automatically restarting after a crash or system failure. The specific registry key modified is `HKLM\SYSTEM\CurrentControlSet\Control\CrashControl`, and the `AutoReboot` value is set to `0`, indicating that the system should not automatically restart.
+4. **Configuration Completed:**
+   - Once the script completes, your Windows system should have auto-restart disabled successfully.
 
-- **Disables automatic restart with logged-on users for Windows Update installations:**
-  The script adds a registry entry to disable automatic restarts for Windows Update installations when users are logged on. This modification prevents the system from automatically restarting if users are logged on during a Windows Update installation. The specific registry key modified is `HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU`, and the `NoAutoRebootWithLoggedOnUsers` value is set to `1`, indicating that the system should not automatically restart when users are logged on.
+## Important Notes
 
-- **Displays a countdown message and updates Group Policy:**
-  The script provides a countdown message, allowing users to see when the system will be updated. After the countdown, the script updates Group Policy settings, ensuring that the changes take effect.
+- **Security Considerations:**
+  - Disabling automatic updates can expose your system to security risks. Use this script with caution and consider enabling updates periodically for security purposes.
 
-## Important Note
+- **Administrative Privileges:**
+  - Ensure that you run the script with administrative privileges for it to make the necessary changes.
 
-After running the CMD file, your Windows system should no longer auto restart while signed in. However, it's crucial to understand the changes made by the script and their potential impact on system security and performance. Please use this script at your own risk, as it modifies system settings and registry entries.
+- **Windows Update Service:**
+  - The script stops and restarts the Windows Update service as part of the configuration.
 
-**Use at your own risk. The script modifies system settings and registry entries, and it's important to understand its impact.**
+- **Group Policy Update:**
+  - The script forces an update of Group Policy to apply the changes.
+
+- **Use at Your Own Risk:**
+  - Understand the impact of disabling auto-restart and automatic updates on your system. Use the script at your own risk.
 
 ## License
 
