@@ -5,10 +5,10 @@ This script automates the process of disabling automatic restarts on your Window
 ## Usage
 
 1. **Download Script:**
-   - Download the script: [DisableAutoRestart.cmd](DisableAutoRestart.cmd).
+   - Download the script: [Disable_Auto_Restart.cmd](Disable_Auto_Restart.cmd).
 
 2. **Run as Administrator:**
-   - Click on the downloaded script (`DisableAutoRestart.cmd`) and run it.
+   - Click on the downloaded script (`Disable_Auto_Restart.cmd`) and run it.
    - When prompted, grant administrative privileges.
 
 3. **Follow Instructions:**
