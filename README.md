@@ -5,10 +5,10 @@ This script automates the process of disabling automatic restarts on your Window
 ## Usage
 
 1. **Download Script:**
-   - Download the script: [Disable_Auto_Restart.cmd](Disable_Auto_Restart.cmd).
+   - Download the script or exe: [Disable_Auto_Restart.cmd](Disable_Auto_Restart.cmd) or [Disable_Auto_Restart.exe](Disable_Auto_Restart.exe).
 
 2. **Run as Administrator:**
-   - Click on the downloaded script (`Disable_Auto_Restart.cmd`) and run it.
+   - Click on the downloaded file (`Disable_Auto_Restart.cmd`) or (`Disable_Auto_Restart.exe`) and run it.
    - When prompted, grant administrative privileges.
 
 3. **Follow Instructions:**
@@ -24,7 +24,7 @@ This script automates the process of disabling automatic restarts on your Window
   - Disabling automatic updates can expose your system to security risks. Use this script with caution and consider enabling updates periodically for security purposes.
 
 - **Administrative Privileges:**
-  - Ensure that you run the script with administrative privileges for it to make the necessary changes.
+  - Ensure that you run the file with administrative privileges for it to make the necessary changes.
 
 - **Windows Update Service:**
   - The script stops and restarts the Windows Update service as part of the configuration.
